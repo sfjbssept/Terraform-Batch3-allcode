@@ -1,6 +1,12 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = var.region
 }
+variable "region" {
+  description = "This variable is going to contain the region details"
+  type = string
+  default = "ap-south-1"
+}
+
 resource "aws_vpc" "demo-main" {
   cidr_block = "10.0.0.0/18"
   tags = {
